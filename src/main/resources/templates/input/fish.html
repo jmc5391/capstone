@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<nav th:replace="fragments :: navigation"></nav>
+<body>
+
+    <h2>Add New Fish</h2>
+
+    <form method = "POST" th:object = "${fish}">
+        <div class = "form-group">
+            <label th:for = "name">Name</label>
+            <input class = "form-control" th:field = "*{name}" />
+            <span th:errors = "*{name}" class = "error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="length">Max length (inches)</label>
+            <input class="form-control" th:field="*{length}" />
+            <span th:errors="*{length}" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="mingallons">Minimum gallon tank</label>
+            <input class="form-control" th:field="*{mingallons}" />
+            <span th:errors="*{mingallons}" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="mintemp">Minimum temperature (F)</label>
+            <input class="form-control" th:field="*{mintemp}" />
+            <span th:errors="*{mintemp}" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="maxtemp">Maximum temperature (F)</label>
+            <input class="form-control" th:field="*{maxtemp}" />
+            <span th:errors="*{maxtemp}" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="cost">Price in dollars</label>
+            <input class="form-control" th:field="*{cost}" />
+            <span th:errors="*{cost}" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="difficulty">Difficulty</label>
+            <select name = "diffId">
+                <option th:each="diff : ${difficultyList}" th:value="${diff.id}" th:text="${diff.difficultyLevel}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label th:for="compatibility">Compatibility</label>
+            <select name = "compId">
+                <option th:each="comp : ${compatibilityList}" th:value="${comp.id}" th:text="${comp.name}"></option>
+            </select>
+        </div>
+        <input type = "submit" value = "Add Fish" />
+    </form>
+
+</body>
+</html>

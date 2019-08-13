@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<nav th:replace="fragments :: navigation"></nav>
+<body>
+<div>
+    <h2>Welcome to the Tank Generator!</h2>
+    <div>
+        I want to generate by
+        <select name = "options">
+                <option th:each="genOption : ${genOptions}" th:value="${genOption}" th:text="${genOption}"></option>
+        </select>
+    </div>
+</div>
+</body>
+</html>
