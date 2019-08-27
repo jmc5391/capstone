@@ -31,6 +31,8 @@ public class Fish {
     @ManyToOne
     private Difficulty difficulty;
 
+    private int mingroup;
+
     @NotNull
     private int cost;
 
@@ -103,6 +105,14 @@ public class Fish {
 
     public void setCompatibility(Compatibility compatibility) {
         this.compatibility = compatibility;
+    }
+
+    public int getMingroup() {
+        return mingroup;
+    }
+
+    public void setMingroup(int mingroup) {
+        this.mingroup = mingroup;
     }
 
     public String toString() {

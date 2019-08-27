@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<nav th:replace="fragments :: navigation"></nav>
+<head th:replace="fragments :: head"></head>
+<body>
+<h2 th:text = "${fish.name}"></h2>
+<div>Maximum length (inches): <span th:text = "${fish.length}"></span></div>
+<div>Minimum tank size (gallons): <span th:text = "${fish.mingallons}"></span></div>
+<div>Minimum temperature (F): <span th:text = "${fish.mintemp}"></span></div>
+<div>Maximum temperature (F): <span th:text = "${fish.maxtemp}"></span></div>
+<div>Care level: <span th:text = "${fish.difficulty}"></span></div>
+<div>Cost (USD): <span th:text = "${fish.cost}"></span></div>
+<div>Compatibility: <span th:text = "${fish.compatibility}"></span></div>
+</body>
+</html>

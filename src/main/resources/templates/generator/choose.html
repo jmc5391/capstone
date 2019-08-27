@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<nav th:replace="fragments :: navigation"></nav>
+<body>
+<h2>Edit Tank</h2>
+<form method = "POST" th:object="${tank}">
+    <div class = "form-group">
+        <label th:for="tank">Choose a Tank</label>
+        <select name = "tankId">
+            <option th:each="tank : ${tankList}" th:value="${tank.id}" th:text="${tank.name}"></option>
+        </select>
+    </div>
+    <input type = "submit" value = "Edit Tank" />
+</form>
+</body>
+</html>

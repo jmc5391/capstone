@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<nav th:replace="fragments :: navigation"></nav>
+<body>
+<h2 th:text = "${tank.name}"></h2>
+<div>Size in gallons: <span th:text = "${tank.gallons}"></span></div>
+<div>Temperature (F): <span th:text = "${tank.temp}"></span></div>
+<div th:if="${tank.fish == null and tank.fish.isEmpty()}">No fish yet!</div>
+<form method = "POST" th:object = "${tank}">
+<h3 th:text = "Add Fish"></h3>
+    <div class="form-group">
+        <label th:for = "fish">Fish:</label>
+        <select name = "fishId">
+            <option th:each="fish : ${fishList}" th:value="${fish.id}" th:text="${fish.name}"></option>
+        </select>
+    </div>
+    <div class = "form-group">
+        <input class = "form-control" th:field = "amount" />
+    </div>
+    <input type = "submit" value = "Add Fish" />
+</body>
+</html>

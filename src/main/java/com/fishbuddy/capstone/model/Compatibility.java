@@ -41,4 +41,13 @@ public class Compatibility {
     public String toString() {
         return getName();
     }
+
+    public Boolean isCompatible(Compatibility aComp) {
+
+        if(this.name.equals(aComp.name)) {
+            return true;
+        }
+
+        return false;
+    }
 }

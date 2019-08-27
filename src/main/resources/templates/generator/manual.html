@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<nav th:replace="fragments :: navigation"></nav>
+<body>
+<h2>Enter New Tank Manually</h2>
+<form method = "POST" th:object="${tank}">
+    <div class = "form-group">
+        <label th:for = "name">Nickname for tank:</label>
+        <input class = "form-control" th:field = "*{name}"
+    </div>
+    <div class = "form-group">
+        <label th:for = "gallons">Gallons:</label>
+        <input class = "form-control" th:field = "*{gallons}">
+    </div>
+    <div class = "form-group">
+        <label th:for = "temp">Tank temperature</label>
+        <input class = "form-control" th:field = "*{temp}">
+    </div>
+    <input type = "submit" value = "Create Tank" />
+</form>
+</body>
+</html>

@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -52,7 +49,6 @@ public class FishController {
                               @RequestParam int diffId, Errors errors) {
 
         if (errors.hasErrors()) {
-            System.out.println("errors!!!!");
             return "input/fish";
         }
 
@@ -64,5 +60,14 @@ public class FishController {
         newFish.setDifficulty(diff);
         fishDao.save(newFish);
         return "redirect:";
+    }
+
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    public String fishView(@PathVariable("id") int id, Model model) {
+
+        Optional<Fish> optionalFish = fishDao.findById(id);
+        Fish aFish = optionalFish.orElse(null);
+        model.addAttribute("fish", aFish);
+        return "fishview";
     }
 }

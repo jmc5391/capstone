@@ -3,8 +3,8 @@
 <head th:replace="fragments :: head"></head>
 <nav th:replace="fragments :: navigation"></nav>
 <body>
-<ul th:each = "fish : ${fishList}">
-    <a th:href="@{'fish/' + ${fish.id}}" th:text = "${fish}"></a>
-</ul>
+<span th:if="${isComp}">Compatible!</span>
+
+<span th:unless="${isComp}">Not compatible!</span>
 </body>
 </html>
