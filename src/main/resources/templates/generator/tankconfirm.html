@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<nav th:replace="fragments :: navigation"></nav>
+<body>
+<h2>Confirm Tank</h2>
+<div>We found a tank that may work for you: </div>
+<div><span th:text = "${tank.glassTank.getName()}"></span></div>
+<div>Size in gallons: <span th:text = "${tank.glassTank.getGal()}"></span></div>
+<div>Price (USD): <span th:text = "${tank.glassTank.getCost()}"></span></div>
+<form method = "POST">
+    <input type="hidden" th:name = "step" th:value = "three" />
+    <input type="hidden" th:name = "choice" th:value = "three" />
+    <input type = "submit" value = "Looks Good" />
+</form>
+</body>
+</html>

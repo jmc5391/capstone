@@ -5,12 +5,16 @@
 <body>
 <div>
     <h2>Welcome to the Tank Generator!</h2>
+    <form method = "POST" th:object = "${choice}">
     <div>
-        I want to generate by
-        <select name = "options">
+        <label th:for = "choice">I want to generate by </label>
+        <select name = "choice">
                 <option th:each="genOption : ${genOptions}" th:value="${genOption}" th:text="${genOption}"></option>
         </select>
     </div>
+        <input type="hidden" th:name = "step" th:value = "one" />
+    <input type = "submit" value = "Go!" />
+    </form>
 </div>
 </body>
 </html>

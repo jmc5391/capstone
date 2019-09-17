@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<nav th:replace="fragments :: navigation"></nav>
+<body>
+    <h2>Tank View</h2>
+    <div>Gallons: <span th:text = "${tank.getGal()}"></span></div>
+    <div>Total Cost: <span th:text = "${tank.getCost()}"></span></div>
+    <div th:if = "${tank.glassTank}">Tank: <span th:text = "${tank.glassTank.getName()} + ' (' + ${tank.glassTank.getCost()} + ' USD)'"></span></div>
+    <div th:if = "${tank.filter}">Filter: <span th:text = "${tank.filter.getName()} + ' (' + ${tank.filter.getCost()} + ' USD)'"></span></div>
+    <div th:if = "${tank.heater}">Heater: <span th:text = "${tank.heater.getName()} + ' (' + ${tank.heater.getCost()} + ' USD)'"></span></div>
+    <div th:if = "${tank.light}">Light: <span th:text = "${tank.light.getName()} + ' (' + ${tank.light.getCost()} + ' USD)'"></span></div>
+    <div th:if = "${tank.stand}">Stand: <span th:text = "${tank.stand.getName()} + ' (' + ${tank.stand.getCost()} + ' USD)'"></span></div>
+</body>
+</html>
